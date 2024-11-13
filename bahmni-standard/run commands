@@ -1,0 +1,4 @@
+docker rm -f $(docker ps -aq) && docker compose  --profile emr --profile openelis --profile pacs --profile implementer-interface --profile atomfeed-console --profile metabase --profile logging --profile odoo --env-file .env up -d
+docker compose exec -it --user root odoo chown -R odoo:odoo /var/lib/odoo/filestore && docker compose restart odoo
+
+sudo docker compose  --profile emr --profile openelis --profile pacs --profile implementer-interface --profile atomfeed-console --profile metabase --profile logging --profile odoo --env-file .env up -d
